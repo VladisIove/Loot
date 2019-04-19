@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Loots, Ordering
+from .models import Loots, Ordering, FastOrdering
 # Register your models here.
 
 class LootsAdmin( admin.ModelAdmin ):
@@ -16,3 +16,4 @@ class LootsAdmin( admin.ModelAdmin ):
 
 admin.site.register(Loots, LootsAdmin)
 admin.site.register(Ordering)
+admin.site.register(FastOrdering)

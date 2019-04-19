@@ -1,9 +1,6 @@
-
-
-
 from rest_framework import serializers 
 
-from .models import Loots, Ordering
+from .models import Loots, Ordering, FastOrdering
 
 
 class LootsSerializer(serializers.ModelSerializer ):
@@ -23,8 +20,11 @@ class OrderingSerializers(serializers.ModelSerializer ):
 
 	class Meta:
 		model = Ordering 
-		fields = ('f_name',
-							's_name',
-							'phone',
-							'e_mail',
-							'choose')
+		fields = ('f_name', 's_name', 'phone','choose')
+
+class FastOrderingSerializers(serializers.ModelSerializer ):
+	""" Сериализация заказа """
+
+	class Meta:
+		model = FastOrdering 
+		fields = ('phone',)
