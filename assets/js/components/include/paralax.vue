@@ -1,12 +1,16 @@
 <template>
-	<v-parallax dark src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" >
-		<v-layout align-center column justify-center>
+	<v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" >
+
+		<v-layout align-center column justify-center  >
+
 				<v-form  ref="form"    v-model="valid"    lazy-validation  >
-    					<v-text-field v-model="phone"  :counter="13"  :rules="phoneRules" label="Номер телефона" required ></v-text-field>
-					<v-checkbox   v-model="checkbox" :rules="[v => !!v || 'Вы должны согласиться, что бы продолжить!']" label="Вы согласны на обработку персональных данных?" required></v-checkbox>
+    					<v-text-field v-model="phone"  :counter="13"  :rules="phoneRules" label="Номер телефона" required  ></v-text-field>
+					<v-checkbox   v-model="checkbox" :rules="[v => !!v || 'Вы должны согласиться, что бы продолжить!']" label="Вы согласны на обработку персональных данных?" required ></v-checkbox>
 					<v-btn :disabled="!valid" color="primary"  @click="order"> Отправить  </v-btn>
-  </v-form>
+        </v-form>
+
 		</v-layout>
+
 	</v-parallax>
 </template>
 
@@ -33,7 +37,7 @@ export default {
        },
        order(){
        	$.ajax({
-       		url: 'http://127.0.0.1:8000/fastorder/',
+       		url: 'http://127.0.0.1:5000/fastorder/',
        		type: "POST",
        		data: {
        			phone: this.phone,

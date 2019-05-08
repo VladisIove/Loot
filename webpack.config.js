@@ -13,25 +13,30 @@ module.exports = {
     },
 
     plugins: [
-        new BundleTracker({filename: './webpack-stats.json'}),
-        new VueLoaderPlugin(),
+    new BundleTracker({filename: './webpack-stats.json'}),
+    new VueLoaderPlugin(),
     ],
 
     module: {
         rules:  [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            }
-        ],
-    },
-    resolve: {
-        alias: {vue: 'vue/dist/vue.js'}
-    },
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+        },
+        {
+            test: /\.vue$/,
+            loader: 'vue-loader'
+        },
+        {
+           test: /\.(css|sass)$/,
+           loader: ['node-sass', 'sass-loader']
+       }
+
+       ],
+   },
+   resolve: {
+    alias: {vue: 'vue/dist/vue.js'}
+},
 
 };

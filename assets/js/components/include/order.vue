@@ -91,7 +91,6 @@
 
 <script>
   export default {
-
     name: 'order',
 
     data () {
@@ -108,13 +107,14 @@
        v => !!v || 'E-mail обязателен',
        v => /.+@.+/.test(v) || 'E-mail должо быть валидно'
        ],
-       select: null,
+       select: null ,
        items: [],
        checkbox: false
      }
    },
    created(){
      this.loadLoot()
+
    },
    methods: {
     validate () {
@@ -124,7 +124,7 @@
     },
     loadLoot(){
      $.ajax({
-      url: "http://127.0.0.1:8000/loots/",
+      url: "http://127.0.0.1:5000/loots/",
       type: "GET",
       success: (response) => {
         this.loots = response.data.data
@@ -136,7 +136,7 @@
    },
    order(){
      $.ajax({
-      url: 'http://127.0.0.1:8000/order/',
+      url: 'http://127.0.0.1:5000/order/',
       type: "POST",
       data: {
        f_name: this.firstname,
